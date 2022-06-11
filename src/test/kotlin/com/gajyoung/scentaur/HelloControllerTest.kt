@@ -22,6 +22,4 @@ class HelloControllerTest(@Autowired private val mvc: MockMvc) {
             .andExpect(status().isOk)
             .andExpect(content().string(equalTo("Greetings from Spring Boot!")))
     }
-
-
 }

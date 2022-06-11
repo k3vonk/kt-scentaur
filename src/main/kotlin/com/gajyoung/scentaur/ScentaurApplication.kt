@@ -2,23 +2,25 @@ package com.gajyoung.scentaur
 
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan
 import org.springframework.boot.runApplication
 import org.springframework.context.ApplicationContext
 import org.springframework.context.annotation.Bean
 
 @SpringBootApplication
+@ConfigurationPropertiesScan
 class ScentaurApplication {
 
-	@Bean
-	fun commandLineRunner(ctx: ApplicationContext): CommandLineRunner {
-		return CommandLineRunner {
-			println("Let's insepct the beans provided by Spring Boot:")
+    @Bean
+    fun commandLineRunner(ctx: ApplicationContext): CommandLineRunner {
+        return CommandLineRunner {
+            println("Let's insepct the beans provided by Spring Boot:")
 
-			ctx.beanDefinitionNames.sorted().forEach { println(it) }
-		}
-	}
+            ctx.beanDefinitionNames.sorted().forEach { println(it) }
+        }
+    }
 }
 
 fun main(args: Array<String>) {
-	runApplication<ScentaurApplication>(*args)
+    runApplication<ScentaurApplication>(*args)
 }
