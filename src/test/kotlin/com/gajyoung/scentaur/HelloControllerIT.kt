@@ -12,7 +12,7 @@ class HelloControllerIT(@Autowired private val template: TestRestTemplate) {
     @Test
     @kotlin.jvm.Throws(Exception::class)
     fun getHello() {
-        val response = template.getForEntity("/", String::class.java)
+        val response = template.getForEntity("/greet", String::class.java)
         assertThat(response.body).isEqualTo("Greetings from Spring Boot!")
     }
 }

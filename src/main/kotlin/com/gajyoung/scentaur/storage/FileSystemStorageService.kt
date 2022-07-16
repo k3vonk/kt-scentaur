@@ -17,7 +17,11 @@ import java.util.stream.Stream
 class FileSystemStorageService @Autowired
 constructor(properties: StorageProperties) : IStorageService {
 
-    private val rootLocation: Path = Paths.get(properties.location)
+    private val rootLocation: Path
+
+    init {
+        rootLocation = Paths.get(properties.location)
+    }
 
     override fun init() {
         try {
